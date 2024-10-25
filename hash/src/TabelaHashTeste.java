@@ -97,7 +97,7 @@ public class TabelaHashTeste {
 
         for (int tamanho : tamanhos) {
             System.out.println("Tabela Hash de tamanho: " + tamanho);
-            for (int quantidade : new int[]{1000000, 5000000, 20000000}) {
+            for (int quantidade : new int[]{1000, 5000, 20000}) {
                 Registro[] registros = gerarDados(quantidade, seed);
                 TabelaHash tabela = new TabelaHash(tamanho);
 
