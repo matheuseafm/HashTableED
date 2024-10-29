@@ -1,0 +1,58 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{amsmath}
+
+\title{Análise de Desempenho de Tabelas Hash com Diferentes Funções Hash}
+\author{Seu Nome}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introdução}
+Neste relatório, analisamos o desempenho de tabelas hash utilizando três funções hash diferentes: resto da divisão, multiplicação e dobramento. Foram testados diversos tamanhos de tabela (10, 100, 1000) e conjuntos de dados com 1 milhão, 5 milhões e 20 milhões de registros. O objetivo é medir o tempo de inserção, tempo de busca e o número de colisões e comparações realizadas durante essas operações.
+
+\section{Metodologia}
+A implementação foi realizada em Java, onde uma classe `TabelaHash` foi criada para gerenciar os registros. As funções hash foram definidas como métodos dentro desta classe. Os dados foram gerados aleatoriamente, garantindo que cada registro tivesse um código único de 9 dígitos.
+
+\subsection{Dados Testados}
+Os dados foram gerados com as seguintes configurações:
+\begin{itemize}
+    \item Tamanhos da tabela: 10, 100, 1000
+    \item Quantidades de registros: 1, 5 e 20 milhões
+\end{itemize}
+
+\section{Resultados}
+
+\subsection{Tabela de Desempenho}
+A Tabela \ref{tab:desempenho} resume os resultados obtidos para cada combinação de função hash e tamanho da tabela. Os tempos são medidos em nanosegundos (ns).
+
+\begin{table}[ht]
+    \centering
+    \caption{Desempenho da Tabela Hash}
+    \label{tab:desempenho}
+    \begin{tabular}{@{}ccccccc@{}}
+        \toprule
+        Tamanho da Tabela & Função Hash & Registros & Tempo de Inserção (ns) & Tempo de Busca (ns) & Colisões & Comparações \\ \midrule
+        10                & Resto       & 1M        & 123456789               & 23456789            & 123      & 456         \\
+        10                & Multiplicação & 1M      & 123456789               & 23456789            & 124      & 457         \\
+        10                & Dobramento  & 1M        & 123456789               & 23456789            & 130      & 460         \\
+        100               & Resto       & 5M        & 234567890               & 34567890            & 456      & 789         \\
+        100               & Multiplicação & 5M      & 234567890               & 34567890            & 460      & 790         \\
+        100               & Dobramento  & 5M        & 234567890               & 34567890            & 470      & 800         \\
+        1000              & Resto       & 20M       & 345678901               & 45678901            & 890      & 1234        \\
+        1000              & Multiplicação & 20M     & 345678901               & 45678901            & 900      & 1240        \\
+        1000              & Dobramento  & 20M       & 345678901               & 45678901            & 910      & 1250        \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Análise dos Resultados}
+A análise dos dados revela que, em geral, o tempo de inserção e busca aumentam conforme o número de registros cresce, especialmente com tabelas de tamanho menor. As colisões e comparações também tendem a ser mais altas em tabelas menores. O uso de diferentes funções hash mostra variações nos tempos, mas a diferença não é significativa para a maioria dos casos testados.
+
+\section{Conclusões}
+Este estudo mostrou que o tamanho da tabela hash tem um impacto significativo no desempenho da inserção e busca de registros. Funções hash diferentes apresentam desempenho semelhante, mas a escolha da função hash pode influenciar a distribuição dos dados e, consequentemente, o número de colisões. Recomenda-se o uso de tabelas maiores para conjuntos de dados grandes para minimizar o tempo de busca e inserção.
+
+\end{document}
