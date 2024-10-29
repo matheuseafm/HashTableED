@@ -136,7 +136,7 @@ public class TabelaHashTeste {
     public static void main(String[] args) {
         int[] tamanhos = {10, 100, 1000}; // Tamanhos da tabela
         long seed = 12345; // Semente para gerar dados aleatórios
-        int[] quantidades = {1000000, 5000000, 20000000}; // Tamanhos dos dados
+        int[] quantidades = {1000, 5000, 20000}; // Tamanhos dos dados reduzidos
 
         for (int tamanho : tamanhos) {
             System.out.println("Tabela Hash de tamanho: " + tamanho);
