@@ -2,7 +2,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Carregar os dados do CSV
+#Do jeito que estava
 dados = pd.read_csv('resultados.csv', header=None, names=['Tamanho', 'FuncaoHash', 'Quantidade', 'TempoInsercao', 'TempoBusca', 'Colisoes', 'Comparacoes'])
+
+#Do jeito que eu coloquei
+dados = pd.read_csv('resultados.csv')
 
 # Criar gráficos
 for funcao in dados['FuncaoHash'].unique():

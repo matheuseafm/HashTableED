@@ -23,6 +23,10 @@ class TabelaHash {
     private int comparacoes;
     private HashFunction hashFunction;
 
+    public int getTamanho(){
+        return this.tamanho;
+    }
+
     public TabelaHash(int capacidade) {
         this.tamanho = capacidade;
         this.tabela = new LinkedList[capacidade];
@@ -146,8 +150,8 @@ public class TabelaHashTeste {
         System.out.println("Total de comparações em buscas: " + totalComparacoes);
         System.out.println("Tempo médio de busca: " + tempoBusca + " ns");
 
-        // Exportar resultados para CSV
-        exportarResultadosParaCSV(arquivo, tabela.getColisoes(), funcaoHash, quantidade, tempoInsercao, tempoBusca, tabela.getColisoes(), totalComparacoes);
+        // Exportar resultados para CSV TODO
+        exportarResultadosParaCSV(arquivo, tabela.getTamanho(), funcaoHash, quantidade, tempoInsercao, tempoBusca, tabela.getColisoes(), totalComparacoes);
     }
 
     public static void main(String[] args) {
