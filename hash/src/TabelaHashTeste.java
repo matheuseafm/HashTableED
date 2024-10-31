@@ -78,10 +78,14 @@ class TabelaHash {
     public int hashDobramento(String codigo, int tamanho) {
         int hash = 0;
         for (int i = 0; i < codigo.length(); i++) {
-            hash += Character.getNumericValue(codigo.charAt(i));
+            int valor = Character.digit(codigo.charAt(i), 10);
+            if (valor != -1) {
+                hash = (hash + valor) % tamanho;
+            }
         }
-        return hash % tamanho;
+        return hash;
     }
+    
 
     public int getColisoes() {
         return colisoes;
@@ -155,9 +159,9 @@ public class TabelaHashTeste {
     }
 
     public static void main(String[] args) {
-        int[] tamanhos = {10, 100, 1000}; // Tamanhos da tabela
+        int[] tamanhos = {1000, 2000, 5000}; // Tamanhos da tabela
         long seed = 12345; // Semente para gerar dados aleatórios
-        int[] quantidades = {1000, 5000, 20000}; // Tamanhos dos dados
+        int[] quantidades = {10000, 50000, 20000}; // Tamanhos dos dados
         String arquivoCSV = "resultados.csv";
 
         // Criar arquivo CSV e adicionar cabeçalho
