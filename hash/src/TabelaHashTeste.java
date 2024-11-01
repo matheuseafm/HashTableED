@@ -188,7 +188,7 @@ public class TabelaHashTeste {
     public static void main(String[] args) {
         int[] tamanhos = {1000, 2000, 5000}; // Diferentes tamanhos de tabela hash.
         long seed = 12345; // Semente para gerar dados aleatórios.
-        int[] quantidades = {10000, 50000, 20000}; // Quantidades de registros a serem gerados.
+        int[] quantidades = {10000, 50000, 200000}; // Quantidades de registros a serem gerados.
         String arquivoCSV = "resultados.csv"; // Nome do arquivo CSV para armazenar resultados.
 
         // Criar arquivo CSV e adicionar cabeçalho.
